@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+package map.proto;
+
+// Pixel buffert to process images. Will be converted to OpenCV Mats.
+message OCVMat {
+  int32 rows = 1;
+  int32 cols = 2;
+  int32 type = 3;
+  int32 size = 4;
+  bytes data = 5;
+}
+
+// 3D Vector to represent physical magnitudes.
+message Vector3d {
+  float x = 1;
+  float y = 2;
+  float z = 3;
+}
+
+// LiDAR point information.
+message Point {
+  Vector3d location = 1;
+  float intensity = 2;
+}
+
+// Point cloud for one LiDAR spin.
+message PointCloud {
+  repeated Point points = 1;
+}
